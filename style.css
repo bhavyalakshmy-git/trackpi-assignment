@@ -1,37 +1,31 @@
-/* Pixel-Perfect Facebook Production UI Variable Mapping Tokens */
+/* Modern Facebook Official Design Tokens */
 :root {
-    --bg-main: #f0f2f5;
-    --bg-surface: #ffffff;
-    --bg-header: #ffffff;
-    --text-primary: #050505;
-    --text-secondary: #65676b;
-    --border-ui: #ced0d4;
-    --divider-ui: #e4e6eb;
-    --fb-blue: #1877f2;
-    --fb-blue-hover: #166fe5;
-    --hover-overlay: rgba(0, 0, 0, 0.05);
-    --hover-nav-tab: #f2f2f2;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.1);
-    --shadow-menu: 0 12px 28px 0 rgba(0, 0, 0, 0.2);
+    --bg-color: #f0f2f5;
+    --text-color: #050505;
+    --text-muted: #65676b;
+    --card-bg: #ffffff;
+    --border-color: #ced0d4;
+    --divider-color: #e4e6eb;
+    --primary-color: #1877f2;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --header-bg: #ffffff;
 }
 
 [data-theme="dark"] {
-    --bg-main: #18191a;
-    --bg-surface: #242526;
-    --bg-header: #242526;
-    --text-primary: #e4e6eb;
-    --text-secondary: #b0b3b8;
-    --border-ui: #3e4042;
-    --divider-ui: #3e4042;
-    --fb-blue: #2d88ff;
-    --fb-blue-hover: #4997ff;
-    --hover-overlay: rgba(255, 255, 255, 0.1);
-    --hover-nav-tab: #3a3b3c;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-menu: 0 12px 28px 0 rgba(0, 0, 0, 0.5);
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --text-muted: #b0b3b8;
+    --card-bg: #242526;
+    --border-color: #3e4042;
+    --divider-color: #3e4042;
+    --primary-color: #2d88ff;
+    --hover-bg: rgba(255, 255, 255, 0.1);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --header-bg: #242526;
 }
 
-/* Master Normalization */
+/* Base Document Reset */
 * {
     margin: 0;
     padding: 0;
@@ -39,17 +33,17 @@
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
     transition: background-color 0.2s ease, color 0.2s ease;
     line-height: 1.34;
 }
 
-/* Fixed Global Navigation Bar Layout */
-.fb-header {
-    background-color: var(--bg-header);
-    border-bottom: 1px solid var(--divider-ui);
+/* Header UI Elements */
+.app-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
     padding: 0 16px;
     height: 56px;
     display: flex;
@@ -58,101 +52,49 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow);
 }
 
-.header-left {
+.header-left, .header-right {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: 1;
-    max-width: 320px;
 }
 
-.fb-logo {
-    font-size: 2.5rem;
+.logo {
+    font-size: 2rem;
     font-weight: 800;
-    color: var(--fb-blue);
-    letter-spacing: -3px;
+    color: var(--primary-color);
+    letter-spacing: -2px;
     user-select: none;
-    line-height: 1;
 }
 
-.fb-search-container {
-    background-color: var(--bg-main);
+.search-bar {
+    background-color: var(--bg-color);
     border-radius: 50px;
     padding: 0 12px;
     height: 40px;
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 100%;
 }
 
 .search-icon {
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
-.fb-search-container input {
+.search-bar input {
     background: none;
     border: none;
     outline: none;
-    color: var(--text-primary);
-    font-size: 0.93rem;
-    width: 100%;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    width: 180px;
 }
 
-/* Center Desktop Navigation Tabs */
-.header-center {
-    display: flex;
-    justify-content: center;
-    flex: 1;
-    height: 100%;
-    max-width: 600px;
-}
-
-.nav-tab {
-    background: none;
-    border: none;
-    padding: 0 30px;
-    height: 100%;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border-bottom: 3px solid transparent;
-    transition: color 0.1s, background-color 0.1s;
-}
-
-.nav-tab:hover {
-    background-color: var(--hover-nav-tab);
-    border-radius: 8px;
-    height: calc(100% - 8px);
-    margin-top: 4px;
-}
-
-.nav-tab.active {
-    color: var(--fb-blue);
-    border-bottom: 3px solid var(--fb-blue);
-    border-radius: 0;
-    height: 100%;
-    margin-top: 0;
-}
-
-/* Right Navigation Utility Layout */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 1;
-    justify-content: flex-end;
-    max-width: 320px;
-}
-
-.right-icon-btn {
-    background-color: var(--divider-ui);
+.nav-icon-btn {
+    background-color: var(--divider-color);
     border: none;
     width: 40px;
     height: 40px;
@@ -162,16 +104,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.2s;
 }
 
-.right-icon-btn:hover {
-    background-color: var(--border-ui);
+.nav-icon-btn:hover {
+    background-color: var(--border-color);
 }
 
-.header-avatar {
+.nav-avatar {
     width: 40px;
     height: 40px;
-    background-color: var(--fb-blue);
+    background-color: var(--primary-color);
     color: white;
     font-weight: 700;
     font-size: 0.9rem;
@@ -180,172 +123,70 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    user-select: none;
 }
 
-/* Absolute Position Dropdown Architecture */
-.profile-dropdown-wrapper {
+/* User Account Settings Dropdown */
+.profile-menu-container {
     position: relative;
 }
 
-.fb-dropdown {
+.dropdown-menu {
     display: none;
     position: absolute;
     right: 0;
-    top: 50px;
-    background-color: var(--bg-surface);
+    top: 48px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    width: 360px;
-    box-shadow: var(--shadow-menu);
-    padding: 16px;
-    border: 1px solid var(--divider-ui);
+    width: 240px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 8px;
 }
 
-.fb-dropdown.active {
+.dropdown-menu.active {
     display: block;
 }
 
-.dropdown-user-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.dropdown-title {
+    font-weight: 700;
     padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
+    font-size: 0.95rem;
 }
 
-.dropdown-user-card:hover {
-    background-color: var(--hover-overlay);
+.dropdown-menu hr {
+    border: none;
+    border-top: 1px solid var(--divider-color);
+    margin: 6px 0;
 }
 
-.dropdown-user-card h4 {
-    font-size: 1.05rem;
-    font-weight: 600;
-}
-
-.dropdown-user-card p {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-}
-
-.dropdown-action-item {
-    padding: 12px 8px;
-    font-size: 0.93rem;
+.dropdown-item {
+    padding: 10px 8px;
+    font-size: 0.9rem;
     font-weight: 600;
     border-radius: 6px;
     cursor: pointer;
-    margin-top: 4px;
 }
 
-.dropdown-action-item:hover {
-    background-color: var(--hover-overlay);
+.dropdown-item:hover {
+    background-color: var(--hover-bg);
 }
 
-/* Unified Shared Structural Cards Layout */
-.fb-feed-layout {
+/* Feed & Main Card Architecture */
+.feed-container {
     max-width: 500px;
     margin: 20px auto;
     padding: 0 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
-.fb-card {
-    background-color: var(--bg-surface);
+.post {
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: var(--shadow-card);
-    padding: 12px 16px;
+    padding: 12px 16px 8px 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
 
-.fb-divider {
-    border: none;
-    border-top: 1px solid var(--divider-ui);
-    margin: 8px 0;
-}
-
-/* Shared Reusable Circle Avatars */
-.avatar {
-    width: 40px;
-    height: 40px;
-    background-color: var(--fb-blue);
-    color: white;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.avatar.small {
-    width: 32px;
-    height: 32px;
-    font-size: 0.8rem;
-}
-
-.avatar.large {
-    width: 60px;
-    height: 60px;
-    font-size: 1.3rem;
-}
-
-/* Post Composer Content Card Box styling */
-.post-composer .composer-top {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.composer-mock-input {
-    background-color: var(--bg-main);
-    border: none;
-    border-radius: 20px;
-    height: 40px;
-    flex: 1;
-    text-align: left;
-    padding-left: 16px;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background-color 0.1s;
-}
-
-.composer-mock-input:hover {
-    background-color: var(--border-ui);
-}
-
-.composer-bottom {
-    display: flex;
-    justify-content: space-between;
-}
-
-.composer-action {
-    background: none;
-    border: none;
-    flex: 1;
-    height: 40px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-size: 0.88rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.composer-action:hover {
-    background-color: var(--hover-overlay);
-}
-
-.c-icon {
-    font-size: 1.2rem;
-}
-
-/* Post Production Card Detail Layouts */
+/* Post Profile Header Grid */
 .post-header {
     display: flex;
     align-items: center;
@@ -354,106 +195,121 @@ body {
     margin-bottom: 12px;
 }
 
-.author-meta {
-    display: flex;
-    flex-direction: column;
-}
-
-.profile-link {
-    font-weight: 600;
-    font-size: 0.93rem;
-    color: var(--text-primary);
-    text-decoration: none;
-}
-
-.profile-link:hover {
-    text-decoration: underline;
-}
-
-.sub-meta {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    margin-top: 2px;
-}
-
-.option-dots-btn {
-    position: absolute;
-    right: -8px;
-    top: 0;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 1rem;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-}
-
-.option-dots-btn:hover {
-    background-color: var(--hover-overlay);
-}
-
-.post-body {
-    font-size: 0.93rem;
-    margin-bottom: 12px;
-    word-break: break-word;
-}
-
-/* Analytics Stats Metric Counter Styling */
-.post-analytics {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--divider-ui);
-}
-
-.analytics-left, .analytics-right {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.fb-like-bubble {
-    background: var(--fb-blue);
-    width: 18px;
-    height: 18px;
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #1877f2;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.metrics-text {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
+.meta-info {
+    display: flex;
+    flex-direction: column;
 }
 
-.analytics-right .metrics-text {
+.username {
+    font-weight: 600;
+    font-size: 0.93rem;
     cursor: pointer;
 }
 
-.analytics-right .metrics-text:hover {
+.username:hover {
     text-decoration: underline;
 }
 
-/* Action Trigger Grid Layout Panel */
-.post-action-triggers {
+.timestamp-row {
     display: flex;
-    justify-content: space-between;
-    padding: 4px 0;
-    border-bottom: 1px solid var(--divider-ui);
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
 }
 
-.trigger-btn {
+.timestamp {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.privacy-icon {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.more-options-btn {
+    position: absolute;
+    right: -4px;
+    top: 4px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.more-options-btn:hover {
+    background-color: var(--hover-bg);
+}
+
+/* Typography Body */
+.post-content {
+    font-size: 0.93rem;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Real-Time Engagement Analytics Data Metrics */
+.engagement-analytics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--divider-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.likes-metrics {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.like-emoji-stack {
+    background: #1877f2;
+    color: white;
+    font-size: 0.7rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bottom Interactive Action Row */
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4px;
+}
+
+.action-btn {
     flex: 1;
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     height: 36px;
     border-radius: 4px;
     cursor: pointer;
@@ -463,113 +319,14 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
+    transition: background-color 0.1s;
 }
 
-.trigger-btn:hover {
-    background-color: var(--hover-overlay);
+.action-btn:hover {
+    background-color: var(--hover-bg);
 }
 
-.btn-icon {
-    fill: var(--text-secondary);
-}
-
-/* Javascript Trigger Color Active States */
-.trigger-btn.active-liked {
-    color: var(--fb-blue) !important;
-}
-
-.trigger-btn.active-liked .btn-icon {
-    fill: var(--fb-blue) !important;
-}
-
-/* Nested Thread Comment Engine Layouts */
-.nested-comments-block {
-    margin-top: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.write-comment-input-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.comment-input-wrapper {
-    background-color: var(--bg-main);
-    border-radius: 20px;
-    padding: 0 12px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    flex: 1;
-}
-
-.comment-input-wrapper input {
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--text-primary);
-    font-size: 0.88rem;
-    width: 100%;
-}
-
-.comments-list-container {
-display: flex;
-flex-direction: column;
-gap: 8px;
-}
-.comment-node {
-display: flex;
-align-items: flex-start;
-gap: 8px;
-}
-.comment-bubble-wrapper {
-display: flex;
-flex-direction: column;
-}
-.comment-bubble {
-background-color: var(--bg-main);
-border-radius: 18px;
-padding: 8px 12px;
-max-width: 100%;
-}
-.comment-user {
-font-weight: 600;
-font-size: 0.85rem;
-color: var(--text-primary);
-text-decoration: none;
-display: inline-block;
-margin-bottom: 2px;
-}
-.comment-user:hover {
-text-decoration: underline;
-}
-.comment-bubble p {
-font-size: 0.88rem;
-color: var(--text-primary);
-}
-.comment-actions-links {
-display: flex;
-align-items: center;
-gap: 6px;
-padding-left: 12px;
-margin-top: 2px;
-font-size: 0.75rem;
-color: var(--text-secondary);
-}
-.c-link-btn {
-background: none;
-border: none;
-color: var(--text-secondary);
-font-weight: 700;
-cursor: pointer;
-font-size: 0.75rem;
-}
-.c-link-btn:hover {
-text-decoration: underline;
-}
-.dot-separator {
-font-size: 0.6rem;
+/* System Active States injected via JS */
+.action-btn.active-like {
+    color: var(--primary-color) !important;
 }
