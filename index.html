@@ -3,82 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook Post UI Clone</title>
+    <title>Facebook Web UI Feed</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <header class="app-header">
+    <!-- Top Fixed Navigation Bar -->
+    <header class="fb-header">
         <div class="header-left">
-            <div class="logo">f</div>
-            <div class="search-bar">
-                <span class="search-icon">🔍</span>
+            <div class="fb-logo">f</div>
+            <div class="fb-search-container">
+                <span class="search-icon">
+                    <svg viewBox="0 0 512 512" width="16" height="16"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.3-128-128s57.3-128 128-128 128 57.3 128 128-57.3 128-128 128z"/></svg>
+                </span>
                 <input type="text" placeholder="Search Facebook">
             </div>
         </div>
+
+        <div class="header-center">
+            <button class="nav-tab active" aria-label="Home">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M20 22h-5v-6h-6v6H4a1 1 0 0 1-1-1V10a1 1 0 0 1 .36-.77l8-6.67a1 1 0 0 1 1.28 0l8 6.67A1 1 0 0 1 21 10v11a1 1 0 0 1-1 1z"/></svg>
+            </button>
+            <button class="nav-tab" aria-label="Watch">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M21 3H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5v2h8v-2h5a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-12 11V7l7 3.5-7 3.5z"/></svg>
+            </button>
+            <button class="nav-tab" aria-label="Marketplace">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M21.6 6.13l-1.6-3.2A1 1 0 0 0 19.12 2.4H4.88a1 1 0 0 0-.88.53l-1.6 3.2A1 1 0 0 0 3 7.3V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7.3a1 1 0 0 0-.4-1.17zM12 17.5a4.5 4.5 0 1 1 4.5-4.5 4.5 4.5 0 0 1-4.5 4.5z"/></svg>
+            </button>
+            <button class="nav-tab" aria-label="Groups">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm7 11.5v-.5a5 5 0 0 0-5-5H10a5 5 0 0 0-5 5v.5a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5z"/></svg>
+            </button>
+        </div>
+
         <div class="header-right">
-            <button id="theme-toggle" class="nav-icon-btn" aria-label="Toggle theme">🌙</button>
-            <div class="profile-menu-container">
-                <div class="nav-avatar" id="profile-dropdown-btn">TA</div>
-                <div class="dropdown-menu" id="profile-dropdown">
-                    <p class="dropdown-title">Account Settings</p>
-                    <hr>
-                    <div class="dropdown-item">⚙️ Settings & Privacy</div>
-                    <div class="dropdown-item">🙋‍♂️ Help & Support</div>
-                    <div class="dropdown-item">🚪 Log Out</div>
+            <button id="theme-toggle" class="right-icon-btn" aria-label="Toggle Night Mode">🌙</button>
+            <div class="profile-dropdown-wrapper">
+                <div class="header-avatar" id="avatar-menu-trigger">TI</div>
+                <div class="fb-dropdown" id="account-dropdown">
+                    <div class="dropdown-user-card">
+                        <div class="avatar large">TI</div>
+                        <div>
+                            <h4>Tech Insider</h4>
+                            <p>See your profile</p>
+                        </div>
+                    </div>
+                    <hr class="fb-divider">
+                    <div class="dropdown-action-item">⚙️ Settings & Privacy</div>
+                    <div class="dropdown-action-item">🙋‍♂️ Help & Support</div>
+                    <div class="dropdown-action-item">🚪 Log Out</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="feed-container">
-        <!-- Post Card -->
-        <article class="post">
-            <!-- Header Section -->
+    <!-- Main Central Container Framework -->
+    <main class="fb-feed-layout">
+        
+        <!-- "Create Post" Composer Box Component -->
+        <section class="fb-card post-composer">
+            <div class="composer-top">
+                <div class="avatar">TI</div>
+                <button class="composer-mock-input" id="open-composer-trigger">What's on your mind, Tech?</button>
+            </div>
+            <hr class="fb-divider">
+            <div class="composer-bottom">
+                <button class="composer-action"><span class="c-icon red">📹</span> Live video</button>
+                <button class="composer-action"><span class="c-icon green">🖼️</span> Photo/video</button>
+                <button class="composer-action"><span class="c-icon yellow">😊</span> Feeling/activity</button>
+            </div>
+        </section>
+
+        <!-- Main Content Post Card -->
+        <article class="fb-card fb-post" id="main-post-node">
+            <!-- Top Author Metadata Info block -->
             <div class="post-header">
                 <div class="avatar">TI</div>
-                <div class="meta-info">
-                    <div class="user-row">
-                        <span class="username">@tech_insider</span>
-                    </div>
-                    <div class="timestamp-row">
-                        <span class="timestamp">2 hours ago</span>
-                        <span class="privacy-icon">🌐</span>
+                <div class="author-meta">
+                    <a href="#" class="profile-link">@tech_insider</a>
+                    <div class="sub-meta">
+                        <span class="time-stamp">2 hours ago</span>
+                        <span class="dot-separator">•</span>
+                        <span class="privacy-globe" title="Shared with Public">🌐</span>
                     </div>
                 </div>
-                <button class="more-options-btn">•••</button>
+                <button class="option-dots-btn" aria-label="More options">•••</button>
             </div>
 
-            <!-- Content Section -->
-            <div class="post-content">
+            <!-- Content Area Text Content -->
+            <div class="post-body">
                 <p>Just started my technical round internship assignment today. Building layouts with vanilla CSS is surprisingly fun!</p>
             </div>
 
-            <!-- Engagement Analytics Row -->
-            <div class="engagement-analytics">
-                <div class="likes-metrics">
-                    <span class="like-emoji-stack">👍</span>
-                    <span class="like-counter" id="like-count">84</span>
+            <!-- Quantitative Analytics Metric Counter Row -->
+            <div class="post-analytics">
+                <div class="analytics-left">
+                    <div class="fb-like-bubble">
+                        <svg viewBox="0 0 24 24" width="10" height="10" fill="white"><path d="M4 21h1v-8H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2zM21 11.5a2.5 2.5 0 0 0-2.5-2.5h-3.9l.6-2.9.1-.3a1 1 0 0 0-.3-.7l-.7-.7-4.6 4.6A1 1 0 0 0 10 11v8a2 2 0 0 0 2 2h5.6a2.5 2.5 0 0 0 2.4-1.9l1.9-6.7a2.3 2.3 0 0 0 .1-.9z"/></svg>
+                    </div>
+                    <span class="metrics-text" id="like-count-value">142</span>
                 </div>
-                <div class="comments-shares-metrics">
-                    <span>12 comments</span>
-                    <span>5 shares</span>
+                <div class="analytics-right">
+                    <span class="metrics-text" id="comment-trigger-count">24 Comments</span>
+                    <span class="metrics-text">8 Shares</span>
                 </div>
             </div>
 
-            <!-- Interactive Actions Row -->
-            <div class="post-actions">
-                <button class="action-btn" id="like-action-btn">
-                    <span class="icon">👍</span> Like
+            <!-- Trigger Action Row Grid Buttons -->
+            <div class="post-action-triggers">
+                <button class="trigger-btn" id="like-toggle-action">
+                    <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M4 21h1v-8H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2zM21 11.5a2.5 2.5 0 0 0-2.5-2.5h-3.9l.6-2.9.1-.3a1 1 0 0 0-.3-.7l-.7-.7-4.6 4.6A1 1 0 0 0 10 11v8a2 2 0 0 0 2 2h5.6a2.5 2.5 0 0 0 2.4-1.9l1.9-6.7a2.3 2.3 0 0 0 .1-.9z"/></svg>
+                    Like
                 </button>
-                <button class="action-btn">
-                    <span class="icon">💬</span> Comment
+                <button class="trigger-btn" id="comment-focus-action">
+                    <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                    Comment
                 </button>
-                <button class="action-btn">
-                    <span class="icon">🔗</span> Share
+                <button class="trigger-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" width="20" height="20"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+                    Share
                 </button>
             </div>
+
+            <!-- Bottom Interactive Nested Comments Section -->
+            <section class="nested-comments-block">
+                <!-- Write Comment Box Input -->
+                <div class="write-comment-input-row">
+                    <div class="avatar small">TA</div>
+                    <div class="comment-input-wrapper">
+                        <input type="text" id="comment-text-field" placeholder="Write a comment...">
+                    </div>
+                </div>
+
+                <!-- Appended Feed Lists Container -->
+                <div class="comments-list-container" id="comments-box-root">
+                    <!-- Standard Seed Comment -->
+                    <div class="comment-node">
+                        <div class="avatar small">CL</div>
+                        <div class="comment-bubble-wrapper">
+                            <div class="comment-bubble">
+                                <a href="#" class="comment-user">@coder_life</a>
+                                <p>Agreed! Flexbox and clean variables make standard CSS feel like an entirely new programming framework.</p>
+                            </div>
+                            <div class="comment-actions-links">
+                                <button class="c-link-btn">Like</button>
+                                <span class="dot-separator">•</span>
+                                <button class="c-link-btn">Reply</button>
+                                <span class="dot-separator">•</span>
+                                <span class="comment-time">1h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </article>
     </main>
 
