@@ -1,6 +1,10 @@
 /* ==========================================================================
    1. DESIGN TOKENS & SYSTEM VARIABLES (FACEBOOK EXACT PALETTE)
    ========================================================================== */
+/* ==========================================================================
+   1. DESIGN TOKENS & SYSTEM VARIABLES (FIXED THEME SELECTORS)
+   ========================================================================== */
+/* Default theme state (Fallback) */
 :root {
     --bg-main: #f0f2f5;
     --bg-surface: #ffffff;
@@ -13,6 +17,20 @@
     --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Explicit Light Mode Rules */
+[data-theme="light"] {
+    --bg-main: #f0f2f5;
+    --bg-surface: #ffffff;
+    --bg-header: #ffffff;
+    --text-primary: #050505;
+    --text-secondary: #65676b;
+    --divider-ui: #e4e6eb;
+    --fb-blue: #1877f2;
+    --hover-overlay: rgba(0, 0, 0, 0.05);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Explicit Dark Mode Rules */
 [data-theme="dark"] {
     --bg-main: #18191a;
     --bg-surface: #242526;
