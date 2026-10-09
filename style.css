@@ -1,1 +1,73 @@
+/* Define Variables for Light Theme (Default) */
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #050505;
+    --card-bg: #ffffff;
+    --border-color: #e4e6eb;
+    --primary-color: #1877f2;
+}
+
+/* Define Variables for Dark Theme */
+[data-theme="dark"] {
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --card-bg: #242526;
+    --border-color: #3e4042;
+    --primary-color: #2d88ff;
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#theme-toggle {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.feed-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.post {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
  
