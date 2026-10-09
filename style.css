@@ -516,3 +516,60 @@ body {
 }
 
 .comments-list-container {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.comment-node {
+display: flex;
+align-items: flex-start;
+gap: 8px;
+}
+.comment-bubble-wrapper {
+display: flex;
+flex-direction: column;
+}
+.comment-bubble {
+background-color: var(--bg-main);
+border-radius: 18px;
+padding: 8px 12px;
+max-width: 100%;
+}
+.comment-user {
+font-weight: 600;
+font-size: 0.85rem;
+color: var(--text-primary);
+text-decoration: none;
+display: inline-block;
+margin-bottom: 2px;
+}
+.comment-user:hover {
+text-decoration: underline;
+}
+.comment-bubble p {
+font-size: 0.88rem;
+color: var(--text-primary);
+}
+.comment-actions-links {
+display: flex;
+align-items: center;
+gap: 6px;
+padding-left: 12px;
+margin-top: 2px;
+font-size: 0.75rem;
+color: var(--text-secondary);
+}
+.c-link-btn {
+background: none;
+border: none;
+color: var(--text-secondary);
+font-weight: 700;
+cursor: pointer;
+font-size: 0.75rem;
+}
+.c-link-btn:hover {
+text-decoration: underline;
+}
+.dot-separator {
+font-size: 0.6rem;
+}
